@@ -14,22 +14,15 @@ def scrape_news():
     url = "https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest"
     browser.visit(url)
 
-    html = browser.html
-    soup = BeautifulSoup(html, 'html.parser')
-
-    results = soup.find('div', class_="list_text")
     time.sleep(2)
-
-    news_title=results.find('div',class_="content_title").a.text
-    news_p=results.find('div', class_='article_teaser_body').text
-
-    mars_data = {
-        "news_title": news_title,
-        "news_p":news_p 
-    }
+    html = browser.html
+    soup = BeautifulSoup(html, 'lxml')
+    results = soup.find('div', class_="list_text")
+    news_title=results.a.text
+    news_p=results.find("div",class_='article_teaser_body').text
     browser.quit()
 
-    return mars_data
+    return news_title,news_p
 
 def scrape_weather():
     browser = init_browser()
@@ -43,7 +36,7 @@ def scrape_weather():
     soup = BeautifulSoup(response.text, 'html.parser')
     weather=soup.find("div",class_="js-tweet-text-container").p.text
     new_weather=weather.replace('\n',',')
-    mars_weather=new_weather.rstrip("pic.twitter.com/tWmeti4FBg")
+    mars_weather=new_weather.rsplit('pic', 1)[0]
     
     browser.quit()
 
@@ -71,7 +64,7 @@ def scrape_space_img():
 
 
 
-def mars_hemispheres():
+def scrape_hemispheres():
     browser = init_browser()
     hem_url='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(hem_url)
@@ -98,5 +91,16 @@ def mars_hemispheres():
     return img_url
 
     
+def scrape_all():
 
+    all={
+        "news_title":scrape_news()[0],
+        "news_p":scrape_news()[1]
+    }
+
+    return all
+
+if __name__ == "__main__":
+    data = scrape_news()
+    print(data)
 
