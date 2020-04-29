@@ -22,7 +22,12 @@ def scrape_news():
     news_p=results.find("div",class_='article_teaser_body').text
     browser.quit()
 
-    return news_title,news_p
+    news={
+        "news_title":news_title,
+        "news_p":news_p
+    }
+
+    return news
 
 def scrape_weather():
     browser = init_browser()
@@ -39,6 +44,10 @@ def scrape_weather():
     mars_weather=new_weather.rsplit('pic', 1)[0]
     
     browser.quit()
+
+    mars_weather={
+        "mars_weather":mars_weather
+    }
 
     return mars_weather
 
@@ -59,6 +68,10 @@ def scrape_space_img():
     featured_image_url=browser.url
     
     browser.quit()
+
+    featured_image_url={
+        "featured_image_url":featured_image_url
+    }
 
     return featured_image_url
 
@@ -87,6 +100,16 @@ def scrape_hemispheres():
 
 
     browser.quit()
+    img_url={
+        "first_img":img_url[0]['img_url'],
+        "first_name":img_url[0]['title'],
+        "second_img":img_url[1]['img_url'],
+        "second_name":img_url[1]['title'],
+        "third_img":img_url[2]['img_url'],
+        "third_name":img_url[2]['title'],
+        "fourth_img":img_url[3]['img_url'],
+        "fourth_name":img_url[3]['title']
+    }
 
     return img_url
 
@@ -94,13 +117,11 @@ def scrape_hemispheres():
 def scrape_all():
 
     all={
-        "news_title":scrape_news()[0],
-        "news_p":scrape_news()[1]
+        scrape_news(),
+        scrape_weather()
     }
 
     return all
 
-if __name__ == "__main__":
-    data = scrape_news()
-    print(data)
+
 

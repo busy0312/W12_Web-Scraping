@@ -22,8 +22,8 @@
             <section >
                 <figure class="box">
                     <h2>Latest Mars News</h2>
-                    <h3> How NASA&#39;s Perseverance Mars Team Adjusted to Work in the Time of Coronavirus </h3>
-                    <p> Like much of the rest of the world, the Mars rover team is pushing forward with its mission-critical work while putting the health and safety of their colleagues and community first.</p>
+                    <h3> {{vacation.news_title}} </h3>
+                    <p> {{vacation.news_p}}</p>
                 </figure>
             </div>
             </section>
@@ -32,12 +32,12 @@
         <div class="row">
             <div class="col-lg-8">
                 <h2>Featured Mars Image</h2>
-                <img src="https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA23844_hires.jpg" alt="Mars">
+                <img src="{{vacation.featured_image_url}}" alt="Mars">
             </div>
     
             <div class="col-sm">
                 <h3>Current Weather on Mars</h3>
-                <p> sol 503 (2020-04-26) low -93.8ºC (-136.8ºF) high -4.9ºC (23.2ºF)&#39;, &#39;winds from the WNW at 4.6 m/s (10.2 mph) gusting to 17.5 m/s (39.1 mph)&#39;, &#39;pressure at 6.70 hPap&#39;</p>
+                <p>{{vacation.mars_weather}}</p>
             </div>
 
             <div class="col-sm">
@@ -101,22 +101,22 @@
         <div class="row">
             <div class="col">
                 <a href=" ">
-                    <img class="size1" src="#" alt="Maxtemp">
+                    <img class="size1" src="{{vacation.first_img}}" alt="first_name">
                 </a>
             </div>
             <div class="col">
                 <a href="#">
-                    <img class='size1' src="#" alt="1">
+                    <img class='size1' src="{{vacation.second_img}}" alt="second_name">
                 </a>
             </div>
             <div class="col">
                 <a href="#">
-                    <img class='size1' src="#" alt="2">
+                    <img class='size1' src="{{vacation.third_img}}" alt="third_name">
                 </a>
             </div>
             <div class="col">
                 <a href="#"></a>
-                <img class='size1' src="#" alt="3">
+                <img class='size1' src="{{vacation.four_img}}"  alt="four_name">
                 </a>
             </div>
 
