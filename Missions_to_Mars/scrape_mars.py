@@ -1,4 +1,3 @@
-import os
 import requests
 from splinter import Browser
 from bs4 import BeautifulSoup
@@ -81,7 +80,7 @@ def scrape_all():
     browser.quit()
 
     # put all variables into dict 
-      
+
     all={
         "news_title":news_title,
         "news_p":news_p,
