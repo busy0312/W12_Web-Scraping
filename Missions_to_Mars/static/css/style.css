@@ -1,6 +1,4 @@
-h2{
-    color:black;
-}
+
 
 table {
     border-collapse: collapse;
@@ -10,9 +8,68 @@ table, th, td {
     border: 1px solid black;
   }
 
+.featured_img{
+  width: 600px;
+  height: 600px;
+}
+
+#center{
+  text-align: center;
+}
+#boxforweather{
+  position: static;
+  margin-left: 58%;
+  margin-right: 10%;
+  padding-top: 2px;
+  padding:15px;
+  position: relative;
+  border:lightgray solid;
+}
+
+.boxforpic{
+  border:lightgray solid
+}
+
+.box-1{
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-right:8%;
+  padding-left: 10%;
+}
+.hemi_img{
+  width: 400px;
+  height: 400px;
+}
+
+.hemi_size{
+  position: fixed;
+
+}
+
+.distance{
+  margin-top: 10px;
+}
 
 
 
+@media (max-width: 1198px){
+#boxforweather{
+    margin-top: 5%;
+    margin-left: 1%;
+    border:lightgray solid;
+  }
+
+  .marsfacts {
+    border-collapse: collapse;
+    margin-left: 1%;
+  }
 
 
+}
 
+@media (max-width: 1314px)
+{
+
+}

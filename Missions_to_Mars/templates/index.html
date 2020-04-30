@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mission to Mars</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}" >
-    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+
 </head>
 
 <body>
@@ -18,115 +18,119 @@
             <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
         </div>
         <div class="box-set">
-            <section >
+            <section>
                 <figure class="box">
                     <h2>Latest Mars News</h2>
                     <h3> {{vacation.news_title}} </h3>
                     <p> {{vacation.news_p}}</p>
                 </figure>
-            </div>
-            </section>
-
-    <figure class="box box-2">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2>Featured Mars Image</h2>
-                <img src="{{vacation.featured_image_url}}" alt="Mars">
-            </div>
-    
-            <div class="col-sm">
-                <h3>Current Weather on Mars</h3>
-                <p>{{vacation.mars_weather}}</p>
-            </div>
-
-            <div class="col-sm">
-                <h3>Mars Facts</h3>
-                <table class="dataframe">
-                    <thead>
-                      <tr style="text-align: right;">
-                        <th></th>
-                        <th>Values</th>
-                      </tr>
-                      <tr>
-                        <th></th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th>Equatorial Diameter:</th>
-                        <td>6,792 km</td>
-                      </tr>
-                      <tr>
-                        <th>Polar Diameter:</th>
-                        <td>6,752 km</td>
-                      </tr>
-                      <tr>
-                        <th>Mass:</th>
-                        <td>6.39 × 10^23 kg (0.11 Earths)</td>
-                      </tr>
-                      <tr>
-                        <th>Moons:</th>
-                        <td>2 (Phobos &amp; Deimos)</td>
-                      </tr>
-                      <tr>
-                        <th>Orbit Distance:</th>
-                        <td>227,943,824 km (1.38 AU)</td>
-                      </tr>
-                      <tr>
-                        <th>Orbit Period:</th>
-                        <td>687 days (1.9 years)</td>
-                      </tr>
-                      <tr>
-                        <th>Surface Temperature:</th>
-                        <td>-87 to -5 °C</td>
-                      </tr>
-                      <tr>
-                        <th>First Record:</th>
-                        <td>2nd millennium BC</td>
-                      </tr>
-                      <tr>
-                        <th>Recorded By:</th>
-                        <td>Egyptian astronomers</td>
-                      </tr>
-                    </tbody>
-                  </table>
-            </div>
         </div>
-    </figure>
+        </section>
 
-    <figure class=""box box-3>
-        <h2> Mars Hemispheres <hr></h2>
-        <div class="row">
-            <div class="col">
-                <a href=" ">
-                    <img class="size1" src="{{vacation.first_img}}" alt="first_name">
-                </a>
-            </div>
-            <div class="col">
-                <a href="#">
-                    <img class='size1' src="{{vacation.second_img}}" alt="second_name">
-                </a>
-            </div>
-            <div class="col">
-                <a href="#">
-                    <img class='size1' src="{{vacation.third_img}}" alt="third_name">
-                </a>
-            </div>
-            <div class="col">
-                <a href="#"></a>
-                <img class='size1' src="{{vacation.fourth_img}}"  alt="fourth_name">
-                </a>
-            </div>
+        <figure class="box">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h2>Featured Mars Image</h2>
+                    <a href="{{vacation.featured_image_url}}" , target="_blank"><img class="featured_img"
+                            src="{{vacation.featured_image_url}}" alt="Mars"></a>
 
-    </figure>
-        
+                </div>
+
+                <div class="col-sm" id="boxforweather">
+                    <h3>Current Weather on Mars</h3>
+                    <p>{{vacation.mars_weather}}</p>
+
+                </div>
+
+                <div class="col-sm">
+                    <h3 class='marsfacts'>Mars Facts</h3>
+                    <table class="dataframe marsfacts">
+                        <thead>
+                            <tr style="text-align: right;">
+                                <th></th>
+                                <th>Values</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Equatorial Diameter:</th>
+                                <td>6,792 km</td>
+                            </tr>
+                            <tr>
+                                <th>Polar Diameter:</th>
+                                <td>6,752 km</td>
+                            </tr>
+                            <tr>
+                                <th>Mass:</th>
+                                <td>6.39 × 10^23 kg (0.11 Earths)</td>
+                            </tr>
+                            <tr>
+                                <th>Moons:</th>
+                                <td>2 (Phobos &amp; Deimos)</td>
+                            </tr>
+                            <tr>
+                                <th>Orbit Distance:</th>
+                                <td>227,943,824 km (1.38 AU)</td>
+                            </tr>
+                            <tr>
+                                <th>Orbit Period:</th>
+                                <td>687 days (1.9 years)</td>
+                            </tr>
+                            <tr>
+                                <th>Surface Temperature:</th>
+                                <td>-87 to -5 °C</td>
+                            </tr>
+                            <tr>
+                                <th>First Record:</th>
+                                <td>2nd millennium BC</td>
+                            </tr>
+                            <tr>
+                                <th>Recorded By:</th>
+                                <td>Egyptian astronomers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </figure>
+
+        <figure class="box box-1">
+            <h2 id='center'> Mars Hemispheres
+                <hr>
+            </h2>
+            <div class="row distance" >
+                <div class="col-lg-6 hem_size boxforpic ">
+
+                    <img class="hemi_img " src="{{vacation.first_img}}" alt="first_name">
+                    <h3>{{vacation.first_name}}</h3>
+                    
+                </div>
+                <div class="col-lg-6 hem_size boxforpic">
+
+                    <img class="hemi_img " src="{{vacation.second_img}}" alt="second_name">
+                    <h3>{{vacation.second_name}}</h3>
+                   
+                </div>
+                <div class="col-lg-6 hem_size boxforpic">
+
+                    <img class="hemi_img" src="{{vacation.third_img}}" alt="third_name">
+                    <h3>{{vacation.third_name}}</h3>
+
+                </div>
+                <div class="col-lg-6 hem_size boxforpic">
+
+                    <img class="hemi_img" src="{{vacation.fourth_img}}" alt="fourth_name">
+                    <h3>{{vacation.fourth_name}}</h3>
+                </div>
+
+        </figure>
+
 
     </div>
 </body>
 
 </html>
-
-
-
-
