@@ -78,8 +78,10 @@ def scrape_all():
         img_url.append(products)
         browser.back() 
 
- 
-        
+    browser.quit()
+
+    # put all variables into dict 
+      
     all={
         "news_title":news_title,
         "news_p":news_p,
@@ -97,50 +99,6 @@ def scrape_all():
 
     return all
 
-
-
-
-
-def scrape_hemispheres():
-    browser = init_browser()
-    hem_url='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    browser.visit(hem_url)
-
-    time.sleep(1)
-
-    html=browser.html
-    soup = BeautifulSoup(html, 'html.parser')
-    img_url = []
-
-    for each_products in range(0,4):
-        products = {}   
-        browser.find_by_css("a.product-item h3")[each_products].click()  
-        products["title"] = browser.find_by_css("h2.title").text 
-        button = browser.find_link_by_text("Sample")
-        products["img_url"] = button["href"]
-        img_url.append(products)
-        browser.back() 
-
-
-
-    browser.quit()
-    img_url={
-        "first_img":img_url[0]['img_url'],
-        "first_name":img_url[0]['title'],
-        "second_img":img_url[1]['img_url'],
-        "second_name":img_url[1]['title'],
-        "third_img":img_url[2]['img_url'],
-        "third_name":img_url[2]['title'],
-        "fourth_img":img_url[3]['img_url'],
-        "fourth_name":img_url[3]['title']
-    }
-
-    return img_url
-
-    
-if __name__ == "__main__":
-    data= scrape_news()
-    print(data)
 
 
 
