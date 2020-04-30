@@ -31,10 +31,17 @@ def scrape_all():
 
     response = requests.get(weather_url)
     soup = BeautifulSoup(response.text, 'html.parser')
-    weather=soup.find("div",class_="js-tweet-text-container").p.text
-    new_weather=weather.replace('\n',',')
-    mars_weather=new_weather.rsplit('pic', 1)[0]
-    
+    results=soup.find_all('div',class_="js-tweet-text-container")
+    all_tweet=[result.text for result in results]
+    weather=[]
+    for x in all_tweet:
+        if "InSight" in x:
+            data={}
+            data=x
+            weather.append(data)
+    weather=weather[0]
+    new_weather=weather.replace('\n','')
+    mars_weather=new_weather.rsplit('pic', 1)[0]   
     browser.quit()
 
     browser = init_browser()
