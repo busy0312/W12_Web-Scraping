@@ -64,7 +64,6 @@ def scrape_all():
 
 
     browser = init_browser()
-    
     # Mars Hemispheres
     hem_url='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(hem_url)
@@ -86,22 +85,22 @@ def scrape_all():
 
     browser.quit()
 
-    # put all variables into dict 
 
+    # put all variables into dict 
     all={
-        "news_title":news_title,
-        "news_p":news_p,
-        "mars_weather":mars_weather,
-        "featured_image_url":featured_image_url,
-        "first_img":img_url[0]['img_url'],
-        "first_name":img_url[0]['title'],
-        "second_img":img_url[1]['img_url'],
-        "second_name":img_url[1]['title'],
-        "third_img":img_url[2]['img_url'],
-        "third_name":img_url[2]['title'],
-        "fourth_img":img_url[3]['img_url'],
-        "fourth_name":img_url[3]['title']
-    }
+    "news_title":news_title,
+    "news_p":news_p,
+    "mars_weather":mars_weather,
+    "featured_image_url":featured_image_url,
+    "first_img":img_url[0]['img_url'],
+    "first_name":img_url[0]['title'],
+    "second_img":img_url[1]['img_url'],
+    "second_name":img_url[1]['title'],
+    "third_img":img_url[2]['img_url'],
+    "third_name":img_url[2]['title'],
+    "fourth_img":img_url[3]['img_url'],
+    "fourth_name":img_url[3]['title']
+}
 
     return all
 
